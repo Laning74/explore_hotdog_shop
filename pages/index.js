@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { HomePage } from "../components/home-page";
+import { Card } from "../components/card";
 
 export default function Home({ data }) {
   return (
@@ -10,7 +10,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage data={data} />
+      <Card data={data} />
     </div>
   );
 }

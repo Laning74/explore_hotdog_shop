@@ -1,39 +1,56 @@
-import Link from "next/link";
-import Image from "next/image";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
-export const Navbar = () => {
+export default function ButtonAppBar() {
   return (
-    <navbar>
-      <div>
-        <div className="topNav">
-          <Image
-            alt="logo"
-            src={"/images/logo_black.png"}
-            width={50}
-            height={50}
-          />
-          <nav>
-            <ul>
-              <li>
-                <Link href="/" passHref>
-                  <a> Home</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" passHref>
-                  <a> Events</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about-us" passHref>
-                  <a> About us</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <p className="title"> Sed ut perspiciatis unde omnis</p>
-      </div>
-    </navbar>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
-};
+}
+
+// import Link from "next/link";
+
+// export const Header = () => {
+//   return (
+//     <header>
+//       <div>
+//         <div className="topNav">
+//           <nav>
+//             <ul>
+//               <li>
+//                 <Link href="/">Home</Link>
+//               </li>
+//               <li>
+//                 <Link href="/about-us">About us</Link>
+//               </li>
+//             </ul>
+//           </nav>
+//         </div>
+//         <p className="title"> Sed ut perspiciatis unde omnis</p>
+//       </div>
+//     </header>
+//   );
+// };
