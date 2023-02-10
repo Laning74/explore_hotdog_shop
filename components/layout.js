@@ -2,7 +2,7 @@ import React from "react";
 import { Footer } from "./footer";
 import Navbar from "./navbar";
 
-import Map from "../components/Map";
+// import Map from "../components/Map";
 // import { Card } from "./card";
 
 const MainLayout = ({ children }) => {
@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
       <Navbar />
       <main>{children}</main>
       {/* <Card /> */}
-      <Map />
+      {/* <Map data={children} /> */}
       <Footer />
     </>
   );

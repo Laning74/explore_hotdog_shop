@@ -5,7 +5,9 @@
       "name_shop": "Street Hotdog",
       "location": "Thomesheiveien 33, 3770 Kragerø",
       "image": "https://images.unsplash.com/photo-1536521642388-441263f88a61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3570&q=80",
-      "rating_stars": "5"
+      "rating_stars": "5",
+      "latitude": "58.8696217",
+      "longitude": " 9.4142145"
     },
     {
       "id": "2",
