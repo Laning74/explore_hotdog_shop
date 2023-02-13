@@ -34,7 +34,7 @@ export const HotdogCard = ({ data, index }) => (
             <Typography variant="body2" color="text.secondary">
               {ev.location}
             </Typography>
-            <Rating name="read-only" value={ev.rating_stars} readOnly />
+            <Rating value={ev.rating_stars} />
           </CardContent>
           <CardActions>
             <Button size="small">Share</Button>

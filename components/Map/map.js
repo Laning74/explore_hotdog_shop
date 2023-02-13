@@ -1,43 +1,35 @@
+import React, { Component } from "react";
 import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import styles from "../../styles/Home.module.css";
+import hotdogShops from "../../data/data.json";
 import L from "leaflet";
 
-function GetIcon(_iconSize) {
-  return L.icon({
-    iconUrl: require("../../public/favicon.ico"),
-    iconSize: [_iconSize],
-  });
-}
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
-import { Marker, Popup, MapContainer, TileLayer } from "react-leaflet";
-
-export const Map = ({ data }) => {
-  const position = [data?.latitude, data?.longitude];
-  console.log(data);
+export default function Map() {
   return (
     <MapContainer
       className={styles.map}
-      center={[58.8696217, 9.4142145]}
-      zoom={15}
+      center={[
+        hotdogShops.hotdog_shops[0].latitude,
+        hotdogShops.hotdog_shops[0].longitude,
+      ]}
+      zoom={14}
       scrollWheelZoom={true}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="http://127.0.0.1:8000/tiles/{z}/{x}/{y}.png"
-      />
-      {data?.map((location) => (
-        <Marker position={location.position} icon={GetIcon(location.size)}>
+      {hotdogShops.hotdog_shops.map((shop) => (
+        <Marker position={[shop.latitude, shop.longitude]} key={shop.id}>
           <Popup>
-            {location.name_shop} - {location.location}
+            {shop.name_shop} <br /> {shop.location}
           </Popup>
         </Marker>
       ))}
     </MapContainer>
   );
-};
-
-export default Map;
+}

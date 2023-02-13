@@ -10,8 +10,7 @@ const MainLayout = ({ children }) => {
     <>
       <Navbar />
       <main>{children}</main>
-      {/* <Card /> */}
-      {/* <Map data={children} /> */}
+
       <Footer />
     </>
   );
