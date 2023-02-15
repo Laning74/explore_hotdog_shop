@@ -11,3 +11,19 @@
   padding: 6rem;
   min-height: 100vh;
 }
+
+.searchMeals {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.searchInput {
+  width: 300px;
+  height: 32px;
+  border: none;
+  background-color: white;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.3rem 1rem;
+}
