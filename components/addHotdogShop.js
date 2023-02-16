@@ -1,0 +1,90 @@
+import { addDoc, collection, updateDoc, doc } from "@firebase/firestore";
+import { Button, TextField } from "@mui/material";
+import { useContext, useRef, useEffect } from "react";
+import { db } from "../firebase";
+import { HotdogContext } from "../pages/HotdogContext";
+
+const AddHotdogShop = () => {
+  const inputAreaRef = useRef();
+
+  const { showAlert, hotdogShop, sethotdogShop } = useContext(HotdogContext);
+  const onSubmit = async () => {
+    if (hotdogShop?.id) {
+      // check if hotdogShop has an "id" property
+      //update the hotdogShop
+      const docRef = doc(db, "hotdogShop", hotdogShop.id);
+      const hotdogShopUpdated = { ...hotdogShop };
+      delete hotdogShopUpdated.id; // remove "id" property from the hotdogShop object
+      await updateDoc(docRef, hotdogShopUpdated);
+      sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+      showAlert(
+        "info",
+        `Hotdog shop with id ${hotdogShop.id} updated successfully`
+      );
+    } else {
+      const collectionRef = collection(db, "hotdogShop");
+      const docRef = await addDoc(collectionRef, {
+        ...hotdogShop,
+      });
+      sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+      showAlert(
+        "success",
+        `Hotdog shop with id ${docRef.id} is added successfully`
+      );
+    }
+  };
+
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (!inputAreaRef.current.contains(e.target)) {
+        console.log("Outside input area");
+        sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+      } else {
+        console.log("Inside input area");
+      }
+    };
+    document.addEventListener("mousedown", checkIfClickedOutside);
+    return () => {
+      document.removeEventListener("mousedown", checkIfClickedOutside);
+    };
+  }, []);
+
+  return (
+    <div ref={inputAreaRef}>
+      <TextField
+        fullWidth
+        label="name_shop"
+        margin="normal"
+        value={hotdogShop.name_shop}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, name_shop: e.target.value })
+        }
+      />
+      <TextField
+        fullWidth
+        label="location"
+        margin="normal"
+        value={hotdogShop.location}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, location: e.target.value })
+        }
+      />
+      <TextField
+        fullWidth
+        label="rating_stars"
+        margin="normal"
+        value={hotdogShop.rating_stars}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, rating_stars: e.target.value })
+        }
+      />
+      <Button onClick={onSubmit} variant="contained" sx={{ mt: 3 }}>
+        {hotdogShop.id // check if hotdogShop has an "id" property
+          ? "Update hotdogshop"
+          : "Add a new hotdog shop"}
+      </Button>
+    </div>
+  );
+};
+
+export default AddHotdogShop;

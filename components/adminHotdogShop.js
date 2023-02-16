@@ -27,6 +27,7 @@ const AdminHotdogShop = () => {
       {hotdogShop.map((data) => (
         <HotdogShops
           key={data.id}
+          id={data.id}
           name_shop={data.name_shop}
           location={data.location}
           rating_stars={data.rating_stars}
