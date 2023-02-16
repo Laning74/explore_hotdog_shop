@@ -3,27 +3,12 @@ import { HotdogCard } from "../components/hotdogCard";
 import React from "react";
 import styles from "../styles/Home.module.css";
 import Search from "../components/search";
-
-// import dynamic from "next/dynamic";
-
-// import dynamic from "next/dynamic";
-//Når jeg henter inn map kommer window feilen og hvis jeg tar bort map så kommer det undefined data
-// import Map from "../components/Map/map";
+import AdminHotdogShop from "../components/hotdogShops";
+import HotdogShops from "../components/hotdogShops";
 import Map from "../components/Map";
-
-// const ClientComponent = dynamic(() => import("../components/ClientComponent"), {
-//   // Do not import in server side
-//   ssr: false,
-// });
 
 export default function Home({ data }) {
   console.log("Index-home", data);
-  // useEffect(() => {
-  //   window.welcomeMessage = "Welcome to CodingDeft!";
-  // }, []);
-  // if (typeof window !== "undefined") {
-  //   window.welcomeMessage = "Welcome to CodingDeft!";
-  // }
 
   return (
     <div>
@@ -34,7 +19,8 @@ export default function Home({ data }) {
       </Head>
       <Search />
       <HotdogCard data={data} />
-      {/* <ClientComponent /> */}
+      <AdminHotdogShop />
+      <HotdogShops />
       <main className={styles.main}>
         <Map />
       </main>
