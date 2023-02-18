@@ -13,7 +13,7 @@ const login = () => {
         <Container maxWidth="sm">
           {/* <Box alignItems="center" justifyContent="center"> */}
           <Typography variant="h4" color="text.secondary  ">
-            Velkommen, {session.user.name}
+            Welcome, {session.user.name}
           </Typography>
           <img
             src={session.user.image}
@@ -22,6 +22,10 @@ const login = () => {
           />
           <Typography variant="body1" color="text.secondary">
             Signed in as {session.user.email}
+          </Typography>
+          <br />
+          <Typography variant="body1" color="text.secondary">
+            Go to the Admin page to manage Hotdog Shops
           </Typography>
           <br />
           <Button

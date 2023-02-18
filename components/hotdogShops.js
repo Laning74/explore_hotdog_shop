@@ -5,7 +5,15 @@ import { db } from "../firebase";
 import { HotdogContext } from "../pages/HotdogContext";
 import { useContext } from "react";
 
-const HotdogShops = ({ id, name_shop, location, rating_stars }) => {
+const HotdogShops = ({
+  id,
+  name_shop,
+  location,
+  rating_stars,
+  image,
+  latitude,
+  longitude,
+}) => {
   const { showAlert, sethotdogShop } = useContext(HotdogContext);
 
   const deleteHotdogShop = async (id, e) => {
@@ -18,8 +26,18 @@ const HotdogShops = ({ id, name_shop, location, rating_stars }) => {
 
   return (
     <ListItem
-      onClick={() => sethotdogShop({ id, name_shop, location })}
-      sx={{ mt: 3, boxShadow: 3 }}
+      onClick={() =>
+        sethotdogShop({
+          id,
+          name_shop,
+          location,
+          rating_stars,
+          image,
+          latitude,
+          longitude,
+        })
+      }
+      sx={{ mt: 2, boxShadow: 4 }}
       style={{ backgroundColor: "#FAFAFA" }}
       secondaryAction={
         <>

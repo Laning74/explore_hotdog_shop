@@ -6,6 +6,7 @@ import { useSession, signOut, getSession } from "next-auth/react";
 import AddHotdogShop from "../components/addHotdogShop";
 import AdminHotdogShop from "../components/adminHotdogShop";
 import { HotdogContext } from "../pages/HotdogContext";
+import Typography from "@mui/material/Typography";
 
 const admin = () => {
   const [open, setOpen] = useState(false);
@@ -15,13 +16,16 @@ const admin = () => {
     name_shop: "",
     location: "",
     rating_stars: "",
+    image: "",
+    latitude: "",
+    longitude: "",
   });
   const showAlert = (type, msg) => {
     setAlertType(type);
     setAlertMessage(msg);
     setOpen(true);
   };
-  const handleClose = (event, reason) => {
+  const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -35,7 +39,9 @@ const admin = () => {
     return (
       <div>
         <div>
-          <p>Velkommen, {session.user.name}</p>
+          <Typography variant="body1" color="text.secondary">
+            Velkommen, {session.user.name}
+          </Typography>
           <Button
             variant="contained"
             sx={{ mt: 3, margin: 1 }}

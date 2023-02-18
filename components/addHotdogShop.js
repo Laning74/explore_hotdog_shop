@@ -14,7 +14,14 @@ const AddHotdogShop = () => {
       const hotdogShopUpdated = { ...hotdogShop };
       delete hotdogShopUpdated.id;
       await updateDoc(docRef, hotdogShopUpdated);
-      sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+      sethotdogShop({
+        name_shop: "",
+        location: "",
+        rating_stars: "",
+        image: "",
+        latitude: "",
+        longitude: "",
+      });
       showAlert(
         "info",
         `Hotdog shop with id ${hotdogShop.id} updated successfully`
@@ -24,7 +31,14 @@ const AddHotdogShop = () => {
       const docRef = await addDoc(collectionRef, {
         ...hotdogShop,
       });
-      sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+      sethotdogShop({
+        name_shop: "",
+        location: "",
+        rating_stars: "",
+        image: "",
+        latitude: "",
+        longitude: "",
+      });
       showAlert(
         "success",
         `Hotdog shop with id ${docRef.id} is added successfully`
@@ -36,7 +50,14 @@ const AddHotdogShop = () => {
     const checkIfClickedOutside = (e) => {
       if (!inputAreaRef.current.contains(e.target)) {
         console.log("Outside input area");
-        sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
+        sethotdogShop({
+          name_shop: "",
+          location: "",
+          rating_stars: "",
+          image: "",
+          latitude: "",
+          longitude: "",
+        });
       } else {
         console.log("Inside input area");
       }
@@ -79,6 +100,8 @@ const AddHotdogShop = () => {
       <TextField
         fullWidth
         label="image Unsplash URL"
+        multiline
+        maxRows={4}
         margin="normal"
         value={hotdogShop.image}
         onChange={(e) =>
