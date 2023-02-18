@@ -52,7 +52,10 @@ const CardFirebase = () => {
               <Typography variant="body2" color="text.secondary">
                 {card.location}
               </Typography>
-              <Rating value={parseFloat(card.rating_stars)} />
+              <Rating
+                value={parseFloat(card.rating_stars)}
+                sx={{ marginTop: "0.5rem" }}
+              />
             </CardContent>
           </Card>
         ))}

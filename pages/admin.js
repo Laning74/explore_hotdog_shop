@@ -15,6 +15,7 @@ const admin = () => {
   const [hotdogShop, sethotdogShop] = useState({
     name_shop: "",
     location: "",
+    city: "",
     rating_stars: "",
     image: "",
     latitude: "",

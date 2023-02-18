@@ -17,6 +17,7 @@ const AddHotdogShop = () => {
       sethotdogShop({
         name_shop: "",
         location: "",
+        city: "",
         rating_stars: "",
         image: "",
         latitude: "",
@@ -34,6 +35,7 @@ const AddHotdogShop = () => {
       sethotdogShop({
         name_shop: "",
         location: "",
+        city: "",
         rating_stars: "",
         image: "",
         latitude: "",
@@ -53,6 +55,7 @@ const AddHotdogShop = () => {
         sethotdogShop({
           name_shop: "",
           location: "",
+          city: "",
           rating_stars: "",
           image: "",
           latitude: "",
@@ -87,6 +90,13 @@ const AddHotdogShop = () => {
         onChange={(e) =>
           sethotdogShop({ ...hotdogShop, location: e.target.value })
         }
+      />
+      <TextField
+        fullWidth
+        label="city"
+        margin="normal"
+        value={hotdogShop.city}
+        onChange={(e) => sethotdogShop({ ...hotdogShop, city: e.target.value })}
       />
       <TextField
         fullWidth

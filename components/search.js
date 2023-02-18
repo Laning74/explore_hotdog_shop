@@ -1,8 +1,10 @@
 import { useState } from "react";
+import TextField from "@mui/material/TextField";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
@@ -21,7 +23,7 @@ export default function Search() {
     event.preventDefault();
     const getCards = async () => {
       const cardsCollection = collection(db, "hotdogShop");
-      const q = query(cardsCollection, where("location", "==", searchQuery));
+      const q = query(cardsCollection, where("city", "==", searchQuery));
       const querySnapshot = await getDocs(q);
       const cardsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -35,8 +37,21 @@ export default function Search() {
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
-        <input type="text" value={searchQuery} onChange={handleInputChange} />
-        <button type="submit">Search</button>
+        <TextField
+          label="Search for cities with good hot dogs..."
+          value={searchQuery}
+          onChange={handleInputChange}
+          sx={{
+            width: "60%",
+            marginRight: 2,
+            boxShadow: 3,
+            backgroundColor: "white",
+            borderRadius: "8px",
+          }}
+        />
+        <Button type="submit" variant="contained" sx={{ height: 55 }}>
+          Search
+        </Button>
       </form>
 
       <Container maxWidth={false} sx={{ padding: 5 }}>

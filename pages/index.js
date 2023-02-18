@@ -1,15 +1,13 @@
 import Head from "next/head";
-// import { HotdogCard } from "../components/hotdogCard";
 import CardFirebase from "../components/cardFirebase";
+import TopstarCard from "../components/topstarCard";
 import React from "react";
-// import HotdogShops from "../components/hotdogShops";
+import Typography from "@mui/material/Typography";
 import styles from "../styles/Home.module.css";
 import Search from "../components/search";
 import Map from "../components/Map";
-// import AdminHotdogShop from "../components/adminHotdogShop";
-// import { HotdogContext } from "./HotdogContext";
 
-export default function Home({ props }) {
+export default function Home() {
   return (
     <div>
       <Head>
@@ -19,8 +17,11 @@ export default function Home({ props }) {
       </Head>
 
       <Search />
-      {/* <HotdogCard data={data} /> */}
-      <CardFirebase data={props} />
+      <Typography variant="h4" color="text.secondary  ">
+        This week's HOTDOG recommendation!
+      </Typography>
+      <TopstarCard />
+      <CardFirebase />
 
       <main className={styles.main}>
         <Map />
@@ -28,12 +29,3 @@ export default function Home({ props }) {
     </div>
   );
 }
-
-// export async function getServerSideProps() {
-//   const { hotdog_shops } = await import("/data/data.json");
-//   return {
-//     props: {
-//       data: hotdog_shops,
-//     },
-//   };
-// }

@@ -30,6 +30,7 @@ const AdminHotdogShop = () => {
           id={data.id}
           name_shop={data.name_shop}
           location={data.location}
+          city={data.city}
           rating_stars={data.rating_stars}
           image={data.image}
           latitude={data.latitude}
