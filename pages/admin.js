@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Button from "@mui/material/Button";
 import { Alert, Container, Snackbar } from "@mui/material";
 import { useSession, signOut, getSession } from "next-auth/react";
 import AddHotdogShop from "../components/addHotdogShop";
@@ -35,7 +36,13 @@ const admin = () => {
       <div>
         <div>
           <p>Velkommen, {session.user.name}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
+          <Button
+            variant="contained"
+            sx={{ mt: 3, margin: 1 }}
+            onClick={() => signOut()}
+          >
+            Sign Out
+          </Button>
         </div>
         <HotdogContext.Provider
           value={{ showAlert, hotdogShop, sethotdogShop }}

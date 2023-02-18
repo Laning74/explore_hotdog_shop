@@ -1,6 +1,5 @@
 import { IconButton, ListItem, ListItemText } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { deleteDoc, doc } from "@firebase/firestore";
 import { db } from "../firebase";
 import { HotdogContext } from "../pages/HotdogContext";
@@ -19,7 +18,7 @@ const HotdogShops = ({ id, name_shop, location, rating_stars }) => {
 
   return (
     <ListItem
-      onClick={() => sethotdogShop({ id, name_shop, location, rating_stars })}
+      onClick={() => sethotdogShop({ id, name_shop, location })}
       sx={{ mt: 3, boxShadow: 3 }}
       style={{ backgroundColor: "#FAFAFA" }}
       secondaryAction={
@@ -27,16 +26,10 @@ const HotdogShops = ({ id, name_shop, location, rating_stars }) => {
           <IconButton onClick={(e) => deleteHotdogShop(id, e)}>
             <DeleteIcon />
           </IconButton>
-          <IconButton>
-            <MoreVertIcon />
-          </IconButton>
         </>
       }
     >
-      <ListItemText
-        primary={name_shop}
-        secondary={`${location} \n ${rating_stars}`}
-      />
+      <ListItemText primary={name_shop} secondary={location} />
     </ListItem>
   );
 };

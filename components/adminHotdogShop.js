@@ -31,6 +31,9 @@ const AdminHotdogShop = () => {
           name_shop={data.name_shop}
           location={data.location}
           rating_stars={data.rating_stars}
+          image={data.image}
+          latitude={data.latitude}
+          longitude={data.longitude}
         />
       ))}
     </div>

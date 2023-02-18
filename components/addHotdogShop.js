@@ -10,11 +10,9 @@ const AddHotdogShop = () => {
   const { showAlert, hotdogShop, sethotdogShop } = useContext(HotdogContext);
   const onSubmit = async () => {
     if (hotdogShop?.id) {
-      // check if hotdogShop has an "id" property
-      //update the hotdogShop
       const docRef = doc(db, "hotdogShop", hotdogShop.id);
       const hotdogShopUpdated = { ...hotdogShop };
-      delete hotdogShopUpdated.id; // remove "id" property from the hotdogShop object
+      delete hotdogShopUpdated.id;
       await updateDoc(docRef, hotdogShopUpdated);
       sethotdogShop({ name_shop: "", location: "", rating_stars: "" });
       showAlert(
@@ -78,10 +76,35 @@ const AddHotdogShop = () => {
           sethotdogShop({ ...hotdogShop, rating_stars: e.target.value })
         }
       />
+      <TextField
+        fullWidth
+        label="image Unsplash URL"
+        margin="normal"
+        value={hotdogShop.image}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, image: e.target.value })
+        }
+      />
+      <TextField
+        fullWidth
+        label="latitude"
+        margin="normal"
+        value={hotdogShop.latitude}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, latitude: e.target.value })
+        }
+      />
+      <TextField
+        fullWidth
+        label="longitude"
+        margin="normal"
+        value={hotdogShop.longitude}
+        onChange={(e) =>
+          sethotdogShop({ ...hotdogShop, longitude: e.target.value })
+        }
+      />
       <Button onClick={onSubmit} variant="contained" sx={{ mt: 3 }}>
-        {hotdogShop.id // check if hotdogShop has an "id" property
-          ? "Update hotdogshop"
-          : "Add a new hotdog shop"}
+        {hotdogShop.id ? "Update hotdogshop" : "Add a new hotdog shop"}
       </Button>
     </div>
   );
