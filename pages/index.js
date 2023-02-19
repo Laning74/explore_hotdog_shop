@@ -1,5 +1,4 @@
 import Head from "next/head";
-import CardFirebase from "../components/cardFirebase";
 import TopstarCard from "../components/topstarCard";
 import React from "react";
 import Typography from "@mui/material/Typography";
@@ -21,7 +20,6 @@ export default function Home() {
         This week's HOTDOG recommendation!
       </Typography>
       <TopstarCard />
-      <CardFirebase />
 
       <main className={styles.main}>
         <Map />
