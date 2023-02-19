@@ -20,12 +20,17 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Programs I have used
 
-Visual Studio Code
-Next.js
-NextAuth.js
-Firebase
-Leaflet
-Material UI
+- Visual Studio Code
+
+- Next.js
+
+- NextAuth.js
+
+- Firebase
+
+- Leaflet
+
+- Material UI
 
 ## Firebase
 
