@@ -40,7 +40,7 @@ const topstarsCard = () => {
         {cards.map((card) => (
           <Card
             key={card.id}
-            sx={{ backgroundColor: "#f1f8e9", maxWidth: 345, margin: 0.7 }}
+            sx={{ backgroundColor: "#e4f0f9", maxWidth: 345, margin: 0.7 }}
           >
             <div>
               <Image
@@ -51,7 +51,12 @@ const topstarsCard = () => {
               />
             </div>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ color: "#244154" }}
+              >
                 {card.name_shop}
               </Typography>
               <Typography variant="body2" color="text.secondary">

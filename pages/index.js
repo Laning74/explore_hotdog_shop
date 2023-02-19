@@ -2,7 +2,7 @@ import Head from "next/head";
 import TopstarCard from "../components/topstarCard";
 import React from "react";
 import Typography from "@mui/material/Typography";
-import styles from "../styles/Home.module.css";
+import Box from "@mui/material/Box";
 import Search from "../components/search";
 import Map from "../components/Map";
 
@@ -15,15 +15,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Search />
-      <Typography variant="h4" color="text.secondary  ">
-        This week's HOTDOG recommendation!
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "70px",
+          justifyContent: "center",
+          height: "auto",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Search />
+          <Typography variant="h4" color="text.secondary">
+            This week's HOTDOG recommendation!
+          </Typography>
+        </Box>
+      </Box>
+
       <TopstarCard />
 
-      <main className={styles.main}>
-        <Map />
-      </main>
+      <Map />
     </div>
   );
 }

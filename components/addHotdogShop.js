@@ -136,7 +136,18 @@ const AddHotdogShop = () => {
           sethotdogShop({ ...hotdogShop, longitude: e.target.value })
         }
       />
-      <Button onClick={onSubmit} variant="contained" sx={{ mt: 3 }}>
+      <Button
+        onClick={onSubmit}
+        variant="contained"
+        sx={{
+          mt: 3,
+          margin: 1,
+          backgroundColor: "#244154",
+          "&:hover": {
+            backgroundColor: "#375163",
+          },
+        }}
+      >
         {hotdogShop.id ? "Update hotdogshop" : "Add a new hotdog shop"}
       </Button>
     </div>

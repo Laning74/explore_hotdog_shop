@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 import { Alert, Container, Snackbar } from "@mui/material";
 import { useSession, signOut, getSession } from "next-auth/react";
 import AddHotdogShop from "../components/addHotdogShop";
@@ -39,18 +40,30 @@ const admin = () => {
   if (status === "authenticated") {
     return (
       <div>
-        <div>
+        <Box
+          alignItems="center"
+          justifyContent="center"
+          sx={{ marginTop: "50px", marginLeft: "50px", marginBottom: "10px" }}
+        >
           <Typography variant="body1" color="text.secondary">
             Velkommen, {session.user.name}
           </Typography>
           <Button
             variant="contained"
-            sx={{ mt: 3, margin: 1 }}
+            sx={{
+              mt: 3,
+              margin: 1,
+              backgroundColor: "#f2ae14",
+              color: "#2d4151",
+              "&:hover": {
+                backgroundColor: "#e88c03",
+              },
+            }}
             onClick={() => signOut()}
           >
             Sign Out
           </Button>
-        </div>
+        </Box>
         <HotdogContext.Provider
           value={{ showAlert, hotdogShop, sethotdogShop }}
         >

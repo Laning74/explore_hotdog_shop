@@ -42,14 +42,25 @@ export default function Search() {
           value={searchQuery}
           onChange={handleInputChange}
           sx={{
-            width: "60%",
+            width: "400px",
             marginRight: 2,
             boxShadow: 3,
             backgroundColor: "white",
             borderRadius: "8px",
           }}
         />
-        <Button type="submit" variant="contained" sx={{ height: 55 }}>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            backgroundColor: "#f2ae14",
+            color: "#2d4151",
+            height: 55,
+            "&:hover": {
+              backgroundColor: "#e88c03",
+            },
+          }}
+        >
           Search
         </Button>
       </form>
@@ -79,7 +90,10 @@ export default function Search() {
                 <Typography variant="body2" color="text.secondary">
                   {card.location}
                 </Typography>
-                <Rating value={parseFloat(card.rating_stars)} />
+                <Rating
+                  value={parseFloat(card.rating_stars)}
+                  sx={{ marginTop: "0.5rem" }}
+                />
               </CardContent>
             </Card>
           ))}
