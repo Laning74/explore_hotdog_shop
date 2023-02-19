@@ -44,7 +44,7 @@ const HotdogShops = ({
       secondaryAction={
         <>
           <IconButton onClick={(e) => deleteHotdogShop(id, e)}>
-            <DeleteIcon />
+            <DeleteIcon style={{ color: "#e23d23" }} />
           </IconButton>
         </>
       }

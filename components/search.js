@@ -14,24 +14,23 @@ import Image from "next/image";
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [cards, setCards] = useState([]);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const getCards = async () => {
-      const cardsCollection = collection(db, "hotdogShop");
-      const q = query(cardsCollection, where("city", "==", searchQuery));
-      const querySnapshot = await getDocs(q);
-      const cardsList = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setCards(cardsList);
-    };
-    getCards();
+    const cardsCollection = collection(db, "hotdogShop");
+    const q = query(cardsCollection, where("city", "==", searchQuery));
+    const querySnapshot = await getDocs(q);
+    const cardsList = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    setCards(cardsList);
+    setShowAlert(cardsList.length === 0);
   };
 
   return (
@@ -64,6 +63,14 @@ export default function Search() {
           Search
         </Button>
       </form>
+
+      {showAlert && (
+        <div style={{ marginTop: 20 }}>
+          <Typography variant="h6" component="div" sx={{ color: "red" }}>
+            No results found for "{searchQuery}".
+          </Typography>
+        </div>
+      )}
 
       <Container maxWidth={false} sx={{ padding: 5 }}>
         <Grid

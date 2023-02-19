@@ -33,7 +33,11 @@ export default function Home() {
           }}
         >
           <Search />
-          <Typography variant="h4" color="text.secondary">
+          <Typography
+            variant="h3"
+            color="text.secondary"
+            sx={{ color: "#244154", marginBottom: "15px" }}
+          >
             This week's HOTDOG recommendation!
           </Typography>
         </Box>

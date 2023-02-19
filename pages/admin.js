@@ -46,7 +46,8 @@ const admin = () => {
           sx={{ marginTop: "50px", marginLeft: "50px", marginBottom: "10px" }}
         >
           <Typography variant="body1" color="text.secondary">
-            Velkommen, {session.user.name}
+            Welcome, {session.user.name} <br />
+            You can now start managing your hotdog shops!
           </Typography>
           <Button
             variant="contained"
